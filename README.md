@@ -17,3 +17,5 @@
 > 2014年2月24日 夜 10：00 		完成book enter 中show search commit 命令
 >
 > 2014年2月25日 中午       完成了show-search-show命令，book-show命令，book-tags命令
+>
+> 2014年2月25日 夜 10：00 		初始化时创建SQLITE数据库，完成book-rm命令，完成book-up命令，完成book-review命令
