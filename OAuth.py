@@ -15,9 +15,10 @@ DOUBAN_DIC = {}
 douban_key = config.configKey()
 API_KEY = douban_key['API_KEY']
 API_SECRET = douban_key['API_SECRET']
+CALLBACK_URL = douban_key['CALLBACK_URL']
+SCOPE = douban_key['SCOPE']
 def addOAuth():
-    SCOPE = 'douban_basic_common,shuo_basic_r,shuo_basic_w,book_basic_r,book_basic_w'
-    CALLBACK_URL = 'http://wenren.ddnode.com/search'
+    
     client = douban_client.DoubanClient(API_KEY,API_SECRET,CALLBACK_URL,SCOPE)
     print('welcome to douban shell center ')
     # print('oauth URL :' + client.authorize_url)
