@@ -16,7 +16,6 @@ class Book_search:
       self.bookShell = ('search','rm','up','commit','show','tags')
     def handler(self,shell,client):
         shell = shell.split(' ')
-        print(shell)
         sh = shell[0]
         shellBool = False
         for bs in self.bookShell:
@@ -73,17 +72,13 @@ class Book_search:
             print('book price : '+ showDate['price'] + '￥')
             print('book page : '+ showDate['pages'])
             print('book douban URL : ' + showDate['alt'])
-            print('book author intro : ')
             intro = showDate['author_intro']
+            intro = intro.replace('\n','')
             intro_num = len(intro) // 2
-            print(intro[:intro_num])
-            print(intro[intro_num:])
-            print('book summary : ')
-            summary = showDate['summary']
-            summary_num = len(summary)//2
-            print(summary[:summary_num])
-            print(summary[summary_num:])
-            print()
+            print('book author intro : ' + intro)
+            # summary = showDate['summary']
+            # summary = summary.replace('\n','')
+            # print('book summary : ' + summary)
             print('\n')
         except douban_client.api.error.DoubanAPIError:
             print(douban_client.api.error.DoubanAPIError)
