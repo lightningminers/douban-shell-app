@@ -12,12 +12,13 @@ COOKIE = http.cookiejar.CookieJar()
 # API_KEY = ''
 # API_SECRET = ''
 DOUBAN_DIC = {}
-
+douban_key = config.configKey()
+API_KEY = douban_key['API_KEY']
+API_SECRET = douban_key['API_SECRET']
 def addOAuth():
     SCOPE = 'douban_basic_common,shuo_basic_r,shuo_basic_w,book_basic_r,book_basic_w'
-    ACCESS_TOKE_URL = 'https://www.douban.com/service/auth2/token'
     CALLBACK_URL = 'http://wenren.ddnode.com/search'
-    client = douban_client.DoubanClient(config.API_KEY,config.API_SECRET,CALLBACK_URL,SCOPE)
+    client = douban_client.DoubanClient(API_KEY,API_SECRET,CALLBACK_URL,SCOPE)
     SCOPE = 'douban_basic_common,shuo_basic_r,shuo_basic_w,book_basic_r,book_basic_w'
     client = douban_client.DoubanClient(API_KEY,API_SECRET,CALLBACK_URL,SCOPE)
     print('welcome to douban shell center ')
