@@ -12,6 +12,8 @@
 
 > 2014年2月23日			实现了oauth2.0认证
 >
-> 2014年2月24日中午        基础构造搭建，show me，book shell  douban help
+> 2014年2月24日中午        基础构造搭建，show me，book shell  douban help命令
 >
 > 2014年2月24日 夜 10：00 		完成book enter 中show search commit 命令
+>
+> 2014年2月25日 中午       完成了show-search-show命令，book-show命令，book-tags命令
