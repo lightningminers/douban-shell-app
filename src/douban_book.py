@@ -2,7 +2,8 @@ __author__ = 'xiangwenwen'
 import douban_client.api
 import math
 import os
-# test 25768396
+import sqlite3
+dbPath = os.getcwd() + os.path.sep+'db'+os.path.sep + 'doubanShellApp.db'
 class Book_search:
     def __init__(self):
       self.bookDic = {
@@ -11,9 +12,10 @@ class Book_search:
           'up':self.book_update,
           'rm':self.book_remove,
           'show':self.book_show,
-          'tags':self.book_tags
+          'tags':self.book_tags,
+          'review':self.book_reviews_show
       }
-      self.bookShell = ('search','rm','up','commit','show','tags')
+      self.bookShell = ('search','rm','up','commit','show','tags','review')
     def handler(self,shell,client):
         shell = shell.split(' ')
         sh = shell[0]
@@ -50,12 +52,16 @@ class Book_search:
     def book_commit(self,client,val):
       print('HTTP douban data wait ....')
       val = val.split('|')
-      reviewsid = val[0]
-      reviewstitle = val[1]
-      reviewscontent = val[2]
+      bookid = val[0]
+      booktitle = val[1]
+      bookcontent = val[2]
       try:
-          reviewsDate = client.book.review.new(reviewsid,reviewstitle,reviewscontent)
-          print(reviewsDate)
+          reviewsDate = client.book.review.new(bookid,booktitle,bookcontent)
+          reviewsid =  reviewsDate['id']
+          CX = sqlite3.connect(dbPath)
+          CU= CX.cursor()
+          CU.execute('insert into bookreview values (reviewid,bookid)',(reviewsid,bookid))
+          CX.close()
       except douban_client.api.error.DoubanAPIError:
           print(douban_client.api.error.DoubanAPIError)
           print('need more than 150 words')
@@ -84,9 +90,23 @@ class Book_search:
             print(douban_client.api.error.DoubanAPIError)
             print('book not found')
     def book_update(self,client,val):
-      print('update ' + val)
+        print('HTTP douban update reviews wait ....')
+        val = val.split('|')
+        reviewsid = val[0]
+        newtitle = val[1]
+        newcontent = val[2]
+        try:
+            client.book.review.update(reviewsid,newtitle,newcontent)
+            print('message : update success')
+        except douban_client.api.error.DoubanAPIError:
+            print('message : HTTP error')
     def book_remove(self,client,val):
-      print('remove ' + val)
+        print('HTTP douban remove reviews wait ....')
+        try:
+            client.book.review.delete(val)
+            print('message : remove reviews success')
+        except douban_client.api.error.DoubanAPIError:
+            print('message : HTTP error')
     def book_tags(self,client,val):
        try:
           tagsData = client.book.tags(val)
@@ -98,6 +118,15 @@ class Book_search:
        except douban_client.api.error.DoubanAPIError:
           print(douban_client.api.error.DoubanAPIError)
           print('value error or HTTP error')
+    def book_reviews_show(self,val):
+        bookid = val
+        CX = sqlite3.connect(dbPath)
+        CU= CX.cursor()
+        CU.execute('select * from bookreview where bookid="%s"'%bookid)
+        reviewID = CU.fetchall()
+        print('view bookid as reviewsid' + bookid)
+        print(reviewID)
+        CX.close()
 book = Book_search()
 def bookStatr(client):
   book_bool = True
