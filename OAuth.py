@@ -1,6 +1,8 @@
 __author__ = 'xiangwenwen'
 import douban_client
 import http.client
+import os
+import sqlite3
 import urllib.parse
 import urllib.request
 import http.cookiejar
@@ -54,6 +56,24 @@ def addOAuth():
     DOUBAN_DIC['token_code'] = token_code
     DOUBAN_DIC['refresh_token_code'] = refresh_token_code
     DOUBAN_DIC['code'] = code
-    print(DOUBAN_DIC)
+    workpath = os.getcwd()
+    workpath = workpath + os.path.sep
+    SQLFILE = open(workpath + 'SQLITECONFIG.json','r')
+    try:
+        SQLREAD = SQLFILE.read()
+        SQLREAD = json.loads(SQLREAD)
+    finally:
+        SQLFILE.close()
+    if SQLREAD['SQLITE'] == '0':
+        SQLFILE = open(workpath + 'SQLITECONFIG.json','w')
+        try:
+            os.mkdir(workpath + 'db')
+            CX = sqlite3.connect(workpath +'db' + os.path.sep +'doubanShellApp.db')
+            CU= CX.cursor()
+            CU.execute('create table bookreview (reviewid varchar(45),bookid varchar(45))')
+            CX.close()
+            SQLFILE.write('{"SQLITE":"1"}')
+        finally:
+            SQLFILE.close()
     return client
     pass
