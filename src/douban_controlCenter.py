@@ -8,6 +8,7 @@ def  center():
     pass
 shellDic = {
     'show me':douban_showMe.showme,
+    'show':douban_showMe.showStatr,
     'douban help':douban_help.dbhelp,
     'book':douban_book.bookStatr
 }
