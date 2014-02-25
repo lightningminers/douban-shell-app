@@ -19,8 +19,6 @@ def addOAuth():
     SCOPE = 'douban_basic_common,shuo_basic_r,shuo_basic_w,book_basic_r,book_basic_w'
     CALLBACK_URL = 'http://wenren.ddnode.com/search'
     client = douban_client.DoubanClient(API_KEY,API_SECRET,CALLBACK_URL,SCOPE)
-    SCOPE = 'douban_basic_common,shuo_basic_r,shuo_basic_w,book_basic_r,book_basic_w'
-    client = douban_client.DoubanClient(API_KEY,API_SECRET,CALLBACK_URL,SCOPE)
     print('welcome to douban shell center ')
     # print('oauth URL :' + client.authorize_url)
     email = input('enter the your email: ')
