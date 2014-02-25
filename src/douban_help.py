@@ -13,4 +13,5 @@ def dbhelp(client):
     print('-------   up [string info] : update your comment to douban.com')
     print('-------   show [string info] : view book information')
     print('-------   tags [string id] : view book tag')
+    print('-------   review [bookid] : view book review id')
     pass
