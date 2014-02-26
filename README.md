@@ -14,9 +14,9 @@
 
 ##如何使用##
 
-在config.py文件中，找到API_KEY，API_SECRET，配置上在豆瓣申请的key，CALLBACK_URL填写上在豆瓣应用申请界面中填写的回调URL
+在config.py文件中，找到API_KEY，API_SECRET，配置上在豆瓣申请的key，CALLBACK_URL填写上在豆瓣应用申请界面中填写的回调URL。
 
-，SCOPE填写上在豆瓣应用中申请的权限，在回调URL中，最主要的是拿到授权成功之后的code。
+SCOPE填写上在豆瓣应用中申请的权限，在回调URL中，最主要的是拿到授权成功之后的code。
 
 ##开发日志信息##
 
