@@ -1,5 +1,5 @@
 __author__ = 'xiangwenwen'
-import douban_showMe
+import douban_user
 import douban_help
 import douban_book
 def  center():
@@ -7,8 +7,8 @@ def  center():
     return shell
     pass
 shellDic = {
-    'show me':douban_showMe.showme,
-    'show':douban_showMe.showStatr,
+    'show me':douban_user.showme,
+    'user':douban_user.userStatr,
     'douban help':douban_help.dbhelp,
     'book':douban_book.bookStatr
 }
