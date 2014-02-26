@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "src\douban_book.py", line 70, in book_commit
+    reviewsDate = client.book.review.new(bookid,booktitle,bookcontent)
+  File "D:\python3\lib\site-packages\douban_client\api\review.py", line 17, in new
+    return self._post('/v2/%s/reviews' % self.target, **data)
+  File "D:\python3\lib\site-packages\douban_client\api\base.py", line 15, in _check
+    raise DoubanAPIError(resp)
+douban_client.api.error.DoubanAPIError: ***400 (Bad Request)*** {'request': 'POST /service/v2/book/reviews', 'msg': 'review_content_short(should more than 150)', 'code': 6004}
