@@ -3,9 +3,11 @@ __author__ = 'xiangwenwen'
 def dbhelp(client):
     print('douban help : view douban help doc')
     print('show me : view your information')
-    print('show : enter search user shell')
+    print('user : enter search user shell')
     print('-------   search [string search user] : view you need search user on douban.com')
     print('-------   show [id] : view your information ')
+    print('-------   follow [id] : user follow')
+    print('-------   unfollow [id] : user unfollow')
     print('book : enter book shell')
     print('-------   search [string search book name|tag|start|count] : view search book on douban.com')
     print('-------   commit [string info] : commit -m to douban.com')
