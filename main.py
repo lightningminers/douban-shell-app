@@ -23,6 +23,6 @@ else:
        except KeyError:
             print(shell +  ' is not a douban shell command see douban help')
             continue
-       except  KeyboardInterrupt:
+       except KeyboardInterrupt:
             exit()
     pass
