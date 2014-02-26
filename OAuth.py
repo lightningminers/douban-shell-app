@@ -68,6 +68,7 @@ def addOAuth():
         SQLFILE = open(workpath + 'SQLITECONFIG.json','w')
         try:
             os.mkdir(workpath + 'db')
+            os.mkdir(workpath + 'error')
             CX = sqlite3.connect(workpath +'db' + os.path.sep +'doubanShellApp.db')
             CU= CX.cursor()
             CU.execute('create table bookreview (reviewid varchar(45),bookid varchar(45))')
