@@ -150,12 +150,12 @@ class Book_search:
         traceback.print_exc(file=error_f)
         error_f.close()
         pass
-book = Book_search()
-def bookStatr(client):
+doubanBook = Book_search()
+def bookStart(client):
   book_bool = True
   while book_bool:
       book_shell = input('enter the your book shell : ')
       if book_shell == 'exit':
           book_bool = False
       else:
-          book.handler(book_shell,client)
+          doubanBook.handler(book_shell,client)
