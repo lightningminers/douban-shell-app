@@ -114,7 +114,7 @@ def showme(client):
     print('Name : ' + me['name'])
     print('Location : ' + me['loc_name'])
     pass
-def userStatr(client):
+def userStart(client):
  user_bool = True
  while user_bool:
     user_shell = input('enter the your user shell : ')
