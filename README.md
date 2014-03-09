@@ -11,6 +11,8 @@
 >支持查询用户，查看查询用户的详细信息，关注用户，取消关注用户
 >
 >支持查询书籍，查看查询书籍的详细信息，书籍评论，更新书籍评论，删除书籍评论，查看书籍标签，查看review id。
+>
+>支持查询音乐，查看查询音乐的详细信息
 
 ##如何使用##
 
@@ -31,3 +33,5 @@ SCOPE填写上在豆瓣应用中申请的权限，在回调URL中，最主要的
 > 2014年2月25日 夜 10：00 		初始化时创建SQLITE数据库，完成book-rm命令，完成book-up命令，完成book-review命令
 >
 > 2014年2月26日  晨        移除show顶级命令，增加user命令，完成user-search，user-show，user-follow，user-unfollow命令
+>
+> 2014年3月9日		增加music命令，完成music-search，music-show
